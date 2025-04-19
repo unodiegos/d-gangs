@@ -85,9 +85,9 @@ RegisterNetEvent("d-gangs:client:VehicleList", function()
         exports['qb-menu']:openMenu(VehicleList)
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
         if isLoggedIn and PlayerGang.name ~= "none" then
             v = Config.stash[PlayerGang.name]
             ped = PlayerPedId()
@@ -104,18 +104,18 @@ Citizen.CreateThread(function()
                     exports['qb-core']:HideText()
                 end
             else
-                Citizen.Wait(1000)
+                Wait(1000)
             end
         else
-            Citizen.Wait(2500)
+            Wait(2500)
         end
     end
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
             if isLoggedIn and PlayerGang.name ~= "none" then
             v = Config.Gangs[PlayerGang.name]["VehicleSpawner"]
                 ped = PlayerPedId()
